@@ -1,0 +1,56 @@
+<% include layout/_header %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <form action="/add" method="post">
+            <div class="form-group">
+              <input class="form-control" type="text" name="name" placeholder="Nome">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="type" placeholder="Tipo">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="weight" placeholder="Peso">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="age" placeholder="Idade">
+            </div>
+            <button class="btn btn-primary" type="submit">Adicionar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Peso</th>
+            <th>Idade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var i=0; i < bovControls.length; i++) { %>
+            <tr>
+              <td><%= i + 1%></td>
+              <td><strong><%= bovControls[i].name %></strong></td>
+              <td><%= bovControls[i].type %></td>
+              <td><%= bovControls[i].weight %></td>
+              <td><%= bovControls[i].age %></td>
+              <td>
+                <a href="/delete/<%= bovControls[i]._id %>" class="btn btn-danger">Deletar</a>
+                <a href="/edit/<%= bovControls[i]._id %>" class="btn btn-info">Editar</a>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
