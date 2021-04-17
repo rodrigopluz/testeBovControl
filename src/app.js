@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connection db
-mongoose.connect('mongodb+srv://username:password@api-mongodb-visy3.mongodb.net/bovControl?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://rodrigopluz:308022Rpl@api-mongodb-visy3.mongodb.net/bovControl?retryWrites=true&w=majority')
   .then(db => console.log('db connected'))
   .catch(err => console.log(err));
 
