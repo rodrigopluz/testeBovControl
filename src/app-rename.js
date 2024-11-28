@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connection db
-mongoose.connect('mongodb+srv://username:password@api-mongodb-visy3.mongodb.net/bovControl?retryWrites=true&w=majority')
+mongoose.connect(`${process.env.ACCESS_MONGO_DB_API}`)
   .then(db => console.log('db connected'))
   .catch(err => console.log(err));
 
@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 
 // middlewares
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 // routes
 app.use('/', indexRoutes);
